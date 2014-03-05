@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dismiss Alarm Tasker Plugin</string>
+    <string name="plugin_name">Dismiss Alarm</string>
+    <string name="configuration_label">Alarm Label</string>
+    <string name="configuration_label_information">Enter the label for the dismissed alarm you are interested in.\n\nNOTE:  Leaving this information blank will cause this event to be fired for all dismissed alarms.</string>
+</resources>
