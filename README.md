@@ -11,7 +11,7 @@ alarm labels will result in all dismissed alarms events for that configuration.
 Installation Requirements
 ----------------------------------------
 
-###[Xposed Framework] v3.4+
+###[Xposed Framework] v2.4+
 http://repo.xposed.info/ (FREE)
  
     Xposed is a framework for modules that can change the behavior of the
@@ -47,6 +47,14 @@ http://tasker.dinglisch.net/beta.html
            See http://tasker.dinglisch.net/changes/nextversion.html for the
            changelog in the upcoming version of Tasker.
 
+Version/Change Log
+----------------------------------------
+**1.0 - 2014/03/05 - Initial release**
+
+Source
+----------------------------------------
+Source URL - https://github.com/mikefero/DismissAlarmTaskerPlugin.git
+
 Build Requirement
 ----------------------------------------
 
@@ -57,14 +65,6 @@ http://www.twofortyfouram.com/developer
     settings. Interaction with Locale occurs via Intents which are
     documented in the following sections, along with the
     http://www.twofortyfouram.com/developer/doc/index.html
-
-Version/Change Log
-----------------------------------------
-**1.0 - 2014/03/05 - Initial release**
-
-Source
-----------------------------------------
-Source URL - https://github.com/mikefero/DismissAlarmTaskerPlugin.git
 
 Thanks
 ----------------------------------------
