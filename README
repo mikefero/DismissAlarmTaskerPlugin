@@ -15,9 +15,9 @@ Installation Requirements
 http://repo.xposed.info/ (FREE)
  
     Xposed is a framework for modules that can change the behavior of the
-    system and apps without touching any APKs. That\'s great because it means
+    system and apps without touching any APKs. That's great because it means
     that modules can work for different versions and even ROMs without any
-    changes (as long as the original code was not changed too much). It\'s also
+    changes (as long as the original code was not changed too much). It's also
     easy to undo. As all changes are done in the memory, you just need to
     deactivate the module and reboot to get your original system back. There
     are many other advantages, but here is just one more: Multiple modules can
@@ -35,7 +35,7 @@ http://tasker.dinglisch.net/beta.html
     widgets.
 
     This simple concept profoundly extends your control of your Android device
-    and it\'s capabilities, without the need for \'root\' or a special home
+    and it's capabilities, without the need for 'root' or a special home
     screen.
      
     NOTE:  As of 2014/03/05 the current version available on the Google Play
@@ -69,6 +69,6 @@ Source URL - https://github.com/mikefero/DismissAlarmTaskerPlugin.git
 Thanks
 ----------------------------------------
 rovo89 - Xposed Framework  
-Tungstwenty - Xposed Framework
+Tungstwenty - Xposed Framework  
 Pent - Tasker  
 Two Forty Four AM - Locale API  
