@@ -17,12 +17,14 @@
  *
  * @author Fero
  */
-package fero.taskerplugin.dismissalarm;
+package fero.taskerplugin.dismissalarm.action.ui;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+import fero.taskerplugin.dismissalarm.AbstractPluginActivity;
 import fero.taskerplugin.dismissalarm.utilities.BundleScrubber;
 import fero.xposed.dismissalarm.Constants;
 import fero.xposed.dismissalarm.R;
@@ -32,7 +34,7 @@ import fero.xposed.dismissalarm.R;
  * desire is to get notified when any alarm has been dismissed then the
  * configured alarm label should be the empty string.
  */
-public class ConfigurationActivity extends AbstractPluginActivity {
+public class ConfigurationDeleteAlarmActivity extends AbstractPluginActivity {
 	/**
 	 * Text view alarm label
 	 */
@@ -48,17 +50,17 @@ public class ConfigurationActivity extends AbstractPluginActivity {
 		super.onCreate(savedInstanceState);
 
 		//Scrub the intent
-		Intent currentIntent = getIntent();
+		final Intent currentIntent = getIntent();
 		BundleScrubber.scrub(currentIntent);
 
 		//Retrieve the  the extra Tasker intent bundle
 		final Bundle taskerBundle = currentIntent.getBundleExtra(com.twofortyfouram.locale.Intent.EXTRA_BUNDLE);
 
 		//Present the configuration UI
-		setContentView(R.layout.configuration);
+		setContentView(R.layout.configuration_delete_alarm_action);
 
 		//Assign the TextView alarm label instance
-		_txtAlarmLabel = ((TextView) findViewById(R.id.txtEventAlarmLabel));
+		_txtAlarmLabel = ((TextView) findViewById(R.id.txtAlarmLabel));
 
 		//Determine if the event has already been configured
 		if (taskerBundle != null) {
@@ -72,9 +74,19 @@ public class ConfigurationActivity extends AbstractPluginActivity {
 		if (!isCanceled()) {
 			//Get the alarm label from the TextView
 			_configuredAlarmLabel = _txtAlarmLabel.getText().toString().trim();
+			
+			//Make sure the configured alarm label is valid (not empty)
+			if (!_configuredAlarmLabel.isEmpty()) {
+				//Construct and send the intent to Tasker
+				sendTaskerConfigurationResult(getApplicationContext(), _configuredAlarmLabel);
+			} else {
+				//Create an error message for the user indicating alarm label is required
+				final String toastMessage = getResources().getString(R.string.alarm_label_required_error_message);
+				Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_LONG).show();
 
-			//Construct and send the intent Tasker
-			sendTaskerConfigurationResult(getApplicationContext(), _configuredAlarmLabel);
+				//Short circuit the closing of the configuration UI
+				return;
+			}
 		}
 
 		//Perform parent operations
@@ -89,11 +101,11 @@ public class ConfigurationActivity extends AbstractPluginActivity {
 	 */
 	private final void sendTaskerConfigurationResult(final Context context, final String alarmLabel) {
 		//Create the bundle associated with the intent
-		Bundle bundle = new Bundle();
+		final Bundle bundle = new Bundle();
 		bundle.putString(Constants.DISMISS_ALARM_KEY_ALARM_LABEL, alarmLabel);
 		
 		//Create the intent for the Tasker configuration activity
-		Intent intent = new Intent();
+		final Intent intent = new Intent();
 		
 		/*
 		 * This extra is the data to ourselves: either for the Activity or

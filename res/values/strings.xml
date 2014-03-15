@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dismiss Alarm Tasker Plugin</string>
-    <string name="plugin_name">Dismiss Alarm</string>
-    <string name="configuration_label">Alarm Label</string>
-    <string name="configuration_label_information">Enter the label for the dismissed alarm you are interested in.\n\nNOTE:  Leaving this information blank will cause this event to be fired for all dismissed alarms.</string>
+    <string name="dismissed_alarm_event_plugin_name">Dismissed Alarm</string>
+    <string name="delete_alarm_action_plugin_name">Delete Alarm</string>
+    <string name="update_alarm_action_plugin_name">Update Alarm</string>
+    <string name="alarm_label">Alarm Label</string>
+    <string name="event_dismiss_alarm_label_information">Enter the label for the dismissed alarm you are interested in.\n\nNOTE:  Leaving this information blank will cause this event to be fired for all dismissed alarms.</string>
+    <string name="heading_hours">Hours</string>
+    <string name="hours">0</string>
+    <string name="heading_minutes">Minutes</string>
+    <string name="minutes">0</string>
+    <string name="dismissed_alarm_satisfied">DATP: Dismissed alarm event for dismissed alarm %1$swas triggered</string>
+    <string name="alarm_label_required_error_message">The alarm label must be set and cannot be left blank.  Please enter a valid alarm label.</string>
 </resources>

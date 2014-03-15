@@ -36,4 +36,13 @@ public class Constants {
 	 * Configured alarm label key for the tasker requery request intent
 	 */
 	public static final String CONFIGURED_KEY_ALARM_LABEL = "configured_alarm_label";
+	/**
+	 * Hours key for the alarm updated intent and tasker requery request intent
+	 */
+	public static final String DISMISS_ALARM_KEY_HOURS = "hours";
+	/**
+	 * Minutes key for the alarm updated intent and tasker requery request
+	 * intent
+	 */
+	public static final String DISMISS_ALARM_KEY_MINUTES = "minutes";
 }

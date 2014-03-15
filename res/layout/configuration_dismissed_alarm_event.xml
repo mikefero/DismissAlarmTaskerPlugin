@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConfigurationLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="1"
+    android:orientation="vertical"
+    tools:context="fero.taskerplugin.dismissalarm.event.ui.ConfigurationDismissedAlarmActivity" >
+
+   <TextView
+       android:id="@+id/lblAlarmLabel"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/grey_background"
+       android:labelFor="@+id/txtAlarmLabel"
+       android:text="@string/alarm_label"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/txtAlarmLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:minLines="1" />
+
+    <TextView
+        android:id="@+id/lblAlarmLabelInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:background="@color/grey_background"
+        android:gravity="bottom"
+        android:paddingTop="25dp"
+        android:text="@string/event_dismiss_alarm_label_information" />
+
+</LinearLayout>

@@ -66,7 +66,7 @@ public abstract class AbstractPluginActivity extends Activity {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
 			setupTitleApi11();
 		} else {
-			setTitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(), getString(R.string.plugin_name)));
+			setTitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(), getString(R.string.app_name)));
 		}
 	}
 
@@ -102,7 +102,7 @@ public abstract class AbstractPluginActivity extends Activity {
 
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void setupActionBarApi11() {
-		getActionBar().setSubtitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(), getString(R.string.plugin_name)));
+		getActionBar().setSubtitle(BreadCrumber.generateBreadcrumb(getApplicationContext(), getIntent(), getString(R.string.app_name)));
 	}
 
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

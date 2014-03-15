@@ -23,9 +23,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
+import fero.taskerplugin.dismissalarm.event.ui.ConfigurationDismissedAlarmActivity;
 import fero.taskerplugin.dismissalarm.utilities.BundleScrubber;
 import fero.xposed.dismissalarm.Constants;
 import fero.xposed.dismissalarm.Logger;
+import fero.xposed.dismissalarm.R;
 
 /**
  * This is the receiver for the dismiss alarm intent provided by the Xposed
@@ -43,7 +46,7 @@ public class DismissAlarmReceiver extends BroadcastReceiver {
 	/**
 	 * Intent to ask Takser to re-query this plug-in event
 	 */
-	private static final Intent INTENT_REQUEST_REQUERY = new Intent(com.twofortyfouram.locale.Intent.ACTION_REQUEST_QUERY).putExtra(com.twofortyfouram.locale.Intent.EXTRA_ACTIVITY, ConfigurationActivity.class.getName());
+	private static final Intent INTENT_REQUEST_REQUERY = new Intent(com.twofortyfouram.locale.Intent.ACTION_REQUEST_QUERY).putExtra(com.twofortyfouram.locale.Intent.EXTRA_ACTIVITY, ConfigurationDismissedAlarmActivity.class.getName());
 	/**
 	 * Dismissed alarm label
 	 */
@@ -80,6 +83,11 @@ public class DismissAlarmReceiver extends BroadcastReceiver {
 
 			//Determine if the event was satisfied or not
 			if (isEventConditionSatisfied) {
+				//Create a message for the satisfied dismissed alarm
+				final String toastMessage = context.getResources().getString(R.string.dismissed_alarm_satisfied, _dismissedAlarmLabel.isEmpty() ? "" : _dismissedAlarmLabel + " ");
+				Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show();
+				
+				//Satisfy the Tasker event
 				setResultCode(com.twofortyfouram.locale.Intent.RESULT_CONDITION_SATISFIED);
 			} else {
 				Logger.Fine("Event Condition for Dismissed Alarm is Unsatisfied: " + _dismissedAlarmLabel + " != " + configuredAlarmLabel);
